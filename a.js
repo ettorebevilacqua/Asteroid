@@ -1,10 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
-
 // Create circle
 const circle = new Path2D();
-circle.arc(150, 75, 50, 0, 2 * Math.PI);
+circle.arc(100, 75, 30, 0 * Math.PI, 2 * Math.PI);
 ctx.fillStyle = 'red';
 ctx.fill(circle);
 
@@ -22,16 +21,15 @@ function upDateBall(event) {
   ctx.fill(circle);
 }
 
-function clickCell(e){
-  alert('ss');
-}
-
 // Listen for mouse moves
 canvas.addEventListener('mousemove', upDateBall);
 // scanvas.addEventListener('click', clickCell);
 
-canvas.addEventListener("click", function(){ alert("Hello World!"); });
 
+function clickCell(e){
+  alert('ss');
+}
+canvas.addEventListener("mousedown", ()=> alert("Hello World!"));
 
 ctx.beginPath(); // voglio una fare una serie di linee.
 
@@ -50,6 +48,8 @@ for(let row=0; row <= numRow; row++ ){
  ctx.moveTo( 0, row * lenRow); // linea 2
  ctx.lineTo(canvas.width, row * lenRow);
 }
+
+
 
 /*
 const numCol =  canvas.width / lenCol;
