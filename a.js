@@ -16,10 +16,8 @@ for(let col=0; col < 10; col++ ){
 const lenCol = 40; // distanza tra colonne
 const numCol =  canvas.width / lenCol;
 for(let col=0; col < numCol; col++ ){
-  if (col < canvas.width ){
   ctx.moveTo(col * lenCol, 0); // linea 2
   ctx.lineTo(col * lenCol, 400);
-}
 }
 
 // sposta il cursore del path nella posizione 40,170
