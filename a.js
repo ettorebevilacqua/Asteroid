@@ -2,24 +2,68 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 
+// Create circle
+const circle = new Path2D();
+circle.arc(150, 75, 50, 0, 2 * Math.PI);
+ctx.fillStyle = 'red';
+ctx.fill(circle);
+
+function upDateBall(event) {
+  // Check whether point is inside circle
+  if (ctx.isPointInPath(circle, event.offsetX, event.offsetY)) {
+    ctx.fillStyle = 'green';
+  }
+  else {
+    ctx.fillStyle = 'red';
+  }
+
+  // Draw circle
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fill(circle);
+}
+
+function clickCell(e){
+  alert('ss');
+}
+
+// Listen for mouse moves
+canvas.addEventListener('mousemove', upDateBall);
+// scanvas.addEventListener('click', clickCell);
+
+canvas.addEventListener("click", function(){ alert("Hello World!"); });
+
+
 ctx.beginPath(); // voglio una fare una serie di linee.
 
-// const numCol = 20;
-// const lenColonne = canvas.width / 10;
-/*
-for(let col=0; col < 10; col++ ){
-  ctx.moveTo(col * 20, 0); // linea 2
-  ctx.lineTo(col * 20, 400);
-}
-*/
+ const numCol = 20;
+ const lenCol = canvas.width / numCol;
 
-const lenCol = 40; // distanza tra colonne
+for(let col=0; col <= numCol; col++ ){
+  ctx.moveTo(col * lenCol, 0); // linea 2
+  ctx.lineTo(col * lenCol, canvas.height);
+}
+
+const numRow = 20;
+const lenRow = canvas.height / numRow;
+
+for(let row=0; row <= numRow; row++ ){
+ ctx.moveTo( 0, row * lenRow); // linea 2
+ ctx.lineTo(canvas.width, row * lenRow);
+}
+
+/*
 const numCol =  canvas.width / lenCol;
 for(let col=0; col < numCol; col++ ){
   ctx.moveTo(col * lenCol, 0); // linea 2
-  ctx.lineTo(col * lenCol, 400);
+  ctx.lineTo(col * lenCol, canvas.height);
 }
 
+const numRow =  canvas.height / lenCol;
+for(let row=0; row < numRow; row++ ){
+  ctx.moveTo( 0, row * lenCol); // linea 2
+  ctx.lineTo(canvas.width, row * lenCol);
+}
+*/
 // sposta il cursore del path nella posizione 40,170
 
 
