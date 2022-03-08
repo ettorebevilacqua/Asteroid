@@ -1,6 +1,7 @@
 
 parole nuove :
 
+
 canvas / contesto 2d del canvas
 
 interfaccia : interfaccia utente  , interfaccia a caratterri o grafica
@@ -16,7 +17,7 @@ il context del canvas ci da le api quindi le funzioni per poter disegnare sul ca
 
 il canvas è la lavagna di disegno , il context sono le funzioni per poter disegnare
 
-git : branch (lavorre e spostarsi da branch)
+git : branch (lavore e spostarsi da branch)
 
 
 
