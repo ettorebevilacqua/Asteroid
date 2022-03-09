@@ -31,26 +31,36 @@ function clickCell(e){
 }
 canvas.addEventListener("mousedown", ()=> alert("Hello World!"));
 
-ctx.beginPath(); // voglio una fare una serie di linee.
+//
+function griglia(numCol){
+  ctx.beginPath(); // voglio una fare una serie di linee.
+  if (!numCol) return false;
 
- const numCol = 20;
- const lenCol = canvas.width / numCol;
+  const lenCol = canvas.width / numCol; // conversione
 
-for(let col=0; col <= numCol; col++ ){
-  ctx.moveTo(col * lenCol, 0); // linea 2
-  ctx.lineTo(col * lenCol, canvas.height);
+  // controlla validita
+  // visualizzo i dati 
+  for(let col=0; col <= numCol; col++ ){
+    ctx.moveTo(col * lenCol, 0); // linea 2
+    ctx.lineTo(col * lenCol, canvas.height);
+  }
+
+  const numRow = 20;
+  const lenRow = canvas.height / numRow;
+
+  for(let row=0; row <= numRow; row++ ){
+  ctx.moveTo( 0, row * lenRow); // linea 2
+  ctx.lineTo(canvas.width, row * lenRow);
+  }
+
+  ctx.stroke();
+  // riempi tutti le aree inscritte dal path corrente usanto la configurazione
+  // del deawing state
+  ctx.fill();
+
 }
 
-const numRow = 20;
-const lenRow = canvas.height / numRow;
-
-for(let row=0; row <= numRow; row++ ){
- ctx.moveTo( 0, row * lenRow); // linea 2
- ctx.lineTo(canvas.width, row * lenRow);
-}
-
-
-
+griglia(10);
 /*
 const numCol =  canvas.width / lenCol;
 for(let col=0; col < numCol; col++ ){
